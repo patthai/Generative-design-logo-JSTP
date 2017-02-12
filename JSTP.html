@@ -1,8 +1,9 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/post_to_sheet.js"></script>
 <script src="js/load_sheet.js"></script>
+<script src="js/mutation.js"></script>
+<script src="js/post_to_sheet.js"></script>
 
 
 
@@ -12,29 +13,29 @@
 <form id="data">
 
     <p>Name:</label>
-    <input id="name" name="name" type="text" value=""></p>
+    <input id="name" name="name" type="text" value="Moomoo"></p>
     
     <p>JSTP#:</label>
-    <input id="jstp" name="jstp" type="text" value=""></p>
+    <input id="jstp_value" name="jstp" type="text" value="20"></p>
    
-    <p>original Sequence</label><br>
+    <p>Ancestral Sequence</label><br>
     <textarea id="original_sequence" name="original_sequence" cols="40"></textarea></p>
     
     
-    <p>variation 1:</label><br>
+    <p>Mutation 1:</label><br>
     <textarea id="v_1" name="variation_1" cols="40"></textarea></p>
     <button onclick="post_it(1)">Try it</button>
     
-  	<p>variation 2:</label><br>
+  	<p>Mutation 2:</label><br>
     <textarea id="v_2" name="variation_2" cols="40"></textarea></p>
     <button onclick="post_it(2)">Try it</button>
     
-    <p>variation 3:</label><br>
+    <p>Mutation 3:</label><br>
     <textarea id="v_3" name="variation_3" cols="40"></textarea></p>
     <button onclick="post_it(3)">Try it</button>
     
   
-    <p>variation 4:</label><br>
+    <p>Mutation 4:</label><br>
     <textarea id="v_4" name="variation_4" cols="40"></textarea></p>
     <button onclick="post_it(4)">Try it</button>
     
@@ -45,7 +46,9 @@
 
 </form>
 
- 
+<script>
+ load_original_sequence();
+</script>
 
 
 

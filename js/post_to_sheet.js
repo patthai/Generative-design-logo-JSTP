@@ -22,6 +22,7 @@ $(document).ready(function( $ ) {
 			request.done(function (response, textStatus, jqXHR){
 				$('#result').html('<a href="https://docs.google.com/spreadsheets/d/17jh5-1uCEFY0haO4I55i7N2nh26kcPsjeyGEF2JmoWI/edit?usp=sharing" target="_blank">Success - see Google Sheet</a>');
 				console.log("Hooray, it worked!");
+				load_original_sequence();
 			
 			});
 			request.fail(function (jqXHR, textStatus, errorThrown){
@@ -49,18 +50,19 @@ function post_it(selected_choice)
 {
 
 	if (selected_choice == 1){
-	document.getElementById("original_sequence").innerHTML = document.getElementById("v_1").value;
+	document.getElementById("original_sequence").value = document.getElementById("v_1").value;
 	}
 	else if (selected_choice == 2){
-	document.getElementById("original_sequence").innerHTML = document.getElementById("v_2").value;
+	document.getElementById("original_sequence").value = document.getElementById("v_2").value;
 	}
 	else if (selected_choice == 3){
-	document.getElementById("original_sequence").innerHTML = document.getElementById("v_3").value;
+	document.getElementById("original_sequence").value = document.getElementById("v_3").value;
 	}
 	else if (selected_choice == 4){
-	document.getElementById("original_sequence").innerHTML = document.getElementById("v_4").value;
+	document.getElementById("original_sequence").value = document.getElementById("v_4").value;
 	}
 
 	post_to_sheet();
+	
 	
 }

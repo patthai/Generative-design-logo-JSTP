@@ -1,4 +1,4 @@
-function original_sequence()
+function load_original_sequence()
 	{
 	
 	var url = "https://spreadsheets.google.com/feeds/list/17jh5-1uCEFY0haO4I55i7N2nh26kcPsjeyGEF2JmoWI/od6/public/basic?alt=json";
@@ -23,18 +23,13 @@ function original_sequence()
 		//<*********** convert each line to JSON ***********>
 		var original_sequence = final_data.originalsequence; 
 		
-		//console.log(final_data);
-		console.log(original_sequence);
+		console.log(final_data);
 		document.getElementById("original_sequence").innerHTML = original_sequence;
-
- 		
-
-
- 		
- 		 	
+		
+		mutation ();
  		 	
  	});
 
 }
  
- original_sequence();
+

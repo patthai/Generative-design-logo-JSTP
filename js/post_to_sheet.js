@@ -1,9 +1,7 @@
 $(document).ready(function( $ ) {
 	
-	
-	
 	window.post_to_sheet = function(){
-	    var count = 0;
+	    var count = 0; 
 		var request;
 		$("#data").submit(function(event){
 		
@@ -47,7 +45,22 @@ $(document).ready(function( $ ) {
 	
 });
 
-function post_it()
+function post_it(selected_choice)
 {
+
+	if (selected_choice == 1){
+	document.getElementById("original_sequence").innerHTML = document.getElementById("v_1").value;
+	}
+	else if (selected_choice == 2){
+	document.getElementById("original_sequence").innerHTML = document.getElementById("v_2").value;
+	}
+	else if (selected_choice == 3){
+	document.getElementById("original_sequence").innerHTML = document.getElementById("v_3").value;
+	}
+	else if (selected_choice == 4){
+	document.getElementById("original_sequence").innerHTML = document.getElementById("v_4").value;
+	}
+
 	post_to_sheet();
+	
 }

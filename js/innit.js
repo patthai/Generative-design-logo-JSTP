@@ -1,0 +1,1 @@
+document.getElementById(favorite_div).style.visibility="hidden";

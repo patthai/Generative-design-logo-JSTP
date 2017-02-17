@@ -95,8 +95,8 @@ function color_object(input, draw_object)
 		//plain
 		if (color_switch == 'A'){draw_object.fillColor = colour_1; draw_object.strokeWidth = 2;}
 		else if (color_switch == 'T'){draw_object.strokeColor = colour_1; draw_object.strokeWidth = 2;}
-		else if (color_switch == 'C'){draw_object.fillColor = {gradient: {stops: [[colour_1,], [colour_2, 0.5]],radial: true},origin: draw_object.position, destination: draw_object.bounds.rightCenter}; draw_object.strokeWidth = 2; }	
-		else if (color_switch == 'G'){draw_object.strokeColor = {gradient: {stops: [[colour_1], [colour_2]],radial: true},origin: draw_object.position, destination: draw_object.bounds.rightCenter}; draw_object.strokeWidth = 2;}
+		else if (color_switch == 'C'){draw_object.fillColor = {gradient: {stops: [[colour_1,], [colour_2, 0.5]],radial: false},origin: draw_object.position, destination: draw_object.bounds.rightCenter}; draw_object.strokeWidth = 2; }	
+		else if (color_switch == 'G'){draw_object.strokeColor = {gradient: {stops: [[colour_1], [colour_2]],radial: false},origin: draw_object.position, destination: draw_object.bounds.rightCenter}; draw_object.strokeWidth = 2;}
 	
 		draw_object.blendMode = 'saturation';
 		
@@ -126,7 +126,6 @@ function draw_square(input, operon_size)
 				{
 				//path
 					var draw_object = new Path();
-					draw_object.strokeColor = 'black';
 					draw_object.add(new Point(point_x_1, point_y_1));
 					draw_object.add(new Point(point_x_2, point_y_2));
 					draw_object.add(new Point(point_x_3, point_y_3));
@@ -181,7 +180,7 @@ function draw_ellipse(input, operon_size)
 					
 					var rectangle = new Rectangle(new Point(point_x_1, point_y_1), new Size(size_x, size_y));
 					var draw_object = new Path.Ellipse(rectangle);
-					draw_object.strokeColor = 'black';
+					
 					draw_object.closed = true;
 					
 				
@@ -221,7 +220,7 @@ function draw_process(input_DNA_string)
 	colour_C = DNA_to_hex (input_DNA_string.substring(24, 36)); 
 	var coding_sequence = input_DNA_string.substring(36, input_DNA_string.length);
 	var coding_sequence_length = coding_sequence.length;
-	console.log(coding_sequence_length);
+	////////////////console.log(coding_sequence_length);
 	//reading sequence
 	var i = 0;
 
@@ -236,6 +235,7 @@ function draw_process(input_DNA_string)
 				
 				if(reading_codon == "AA")
 					{ draw_square(coding_sequence.substring(i, i+operon_size), operon_size);}
+					
 				else if(reading_codon == "AT")
 					{ draw_ellipse(coding_sequence.substring(i, i+operon_size), operon_size);}	
 					
@@ -257,16 +257,14 @@ function draw_process(input_DNA_string)
 
 
 
-function draw_init ()
+function draw_init (canvas,input_DNA_string)
 	{
-
-	paper.install(window)          
-	paper.setup('myCanvas')
-
-	var input_DNA_string = "CAAGATTCCACCCAAAAACCTTCCDCCATCAGCTTAAAAAATGCATCGGACGACACCCCAAAAATTTATTTAAACGTTTCAGCACCCCATCAGCTTGCATCGGACGACACCCCAAAAATTT";
+	////////////////console.log(canvas);
+	paper.install(window);          
+	paper.setup(canvas);
+	
 	draw_process(input_DNA_string);
-
+	paper.view.draw();
 
 	}
 
-draw_init ();

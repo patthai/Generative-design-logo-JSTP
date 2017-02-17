@@ -23,9 +23,9 @@ function load_original_sequence()
 		//<*********** convert each line to JSON ***********>
 		var original_sequence = final_data.originalsequence; 
 		
-		console.log(final_data);
+		////////console.log(final_data);
 		document.getElementById("original_sequence").innerHTML = original_sequence;
-		
+		draw_init ('myCanvas_ancestral',original_sequence);
 		mutation ();
  		 	
  	});

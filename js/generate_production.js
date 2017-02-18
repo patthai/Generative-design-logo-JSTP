@@ -111,11 +111,15 @@ function color_object(input, draw_object)
 function draw_square(input, operon_size)
 	{
 		//check if the sequence is completed
+		
 		var repeat_switch = input.charAt(32);
 		var repeat_n = parseInt(DNA_to_number(input.substring(33, 35)));
 		var repeat_distance = parseInt(DNA_to_number(input.substring(35, 37)));
+		
+		
 		if (input.length == operon_size)
 		{
+			
 			var count = 0;
 			var point_x_1 = parseInt(DNA_to_number(input.substring(0, 4)))*3 + canvas_width_center ; var point_y_1 = parseInt(DNA_to_number(input.substring(4, 8)))*3 + canvas_height_center;
 			var point_x_2 = parseInt(DNA_to_number(input.substring(8, 12)))*3 + canvas_width_center; var point_y_2 = parseInt(DNA_to_number(input.substring(12,16)))*3 + canvas_height_center;
@@ -124,6 +128,7 @@ function draw_square(input, operon_size)
 			
 			function draw_one_square()
 				{
+				
 				//path
 					var draw_object = new Path();
 					draw_object.add(new Point(point_x_1, point_y_1));
@@ -214,13 +219,16 @@ function draw_ellipse(input, operon_size)
 
 function draw_process(input_DNA_string)
 	{
+	
 	//develop colour scheme first
 	colour_A = DNA_to_hex (input_DNA_string.substring(0, 12));
 	colour_B = DNA_to_hex (input_DNA_string.substring(12, 24));
 	colour_C = DNA_to_hex (input_DNA_string.substring(24, 36)); 
 	var coding_sequence = input_DNA_string.substring(36, input_DNA_string.length);
 	var coding_sequence_length = coding_sequence.length;
-	////////////////console.log(coding_sequence_length);
+	
+	
+	
 	//reading sequence
 	var i = 0;
 
@@ -229,18 +237,37 @@ function draw_process(input_DNA_string)
 	draw_process.read_sequence = function read_sequence ()
 		{
 		if (i < coding_sequence_length)
+		
 				{
-				i++; 
+				
 				var reading_codon = input_DNA_string.substring(i, i+2);
 				
 				if(reading_codon == "AA")
-					{ draw_square(coding_sequence.substring(i, i+operon_size), operon_size);}
+					{ 
+					
+				
+					var starting_site_square = i;
+					i = i + 40;
+					
+					draw_square(coding_sequence.substring(starting_site_square, starting_site_square+operon_size), operon_size);
+					
+					
+					}
 					
 				else if(reading_codon == "AT")
-					{ draw_ellipse(coding_sequence.substring(i, i+operon_size), operon_size);}	
+					{ 
+					var starting_site_circle = i;
+					i = i + 40;
+					draw_ellipse(coding_sequence.substring(starting_site_circle, starting_site_circle+operon_size), operon_size);
+					
+					}	
 					
 				else
-					{draw_process.read_sequence ();}	
+					{
+					i++; 
+					draw_process.read_sequence ();
+
+					}	
 					
 				}
 				
@@ -259,6 +286,7 @@ function draw_process(input_DNA_string)
 
 function draw_init (canvas,input_DNA_string)
 	{
+	
 	////////////////console.log(canvas);
 	paper.install(window);          
 	paper.setup(canvas);

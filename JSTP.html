@@ -2,8 +2,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.18/paper-full.min.js'></script>
-
-
 <script src="js/load_sheet.js"></script>
 <script src="js/mutation.js"></script>
 <script src="js/post_to_sheet.js"></script>
@@ -13,6 +11,7 @@
 
   <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
 
 
 
@@ -66,18 +65,30 @@
   		</div>
   		
   		<div class="col-md-6">
-  			  	<label>Name</label>
-    			<input id="name" name="name"  class="form-control" type="text" value="">
-    
-    			<label>JSTP#</label>
-    			<input id="jstp_value" name="jstp" class="form-control" type="text" value="12">
-    			
+  				
+  				
+  				<div class="row">
+  					<div class="col-lg-6">
+    					<div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2">Name</span>
+  						<input id="name" name="name"  class="form-control" type="text" value="">
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2">JSTP#</span>
+  						<input id="jstp_value" name="jstp" class="form-control"  type="text" value="12">
+						</div>
+					</div>
+    			</div>
    
-    			<p>Current generation Sequence</label><br>
+    			<p id ="generation_count">Generation :</p>
     			<textarea id="original_sequence" class="form-control" name="original_sequence" cols="40" class="form-control"></textarea></p>
     			
     			
-    			<button  class="btn btn-danger" onclick="post_it(100)">Like this</button>
+    			<button  class="btn btn-danger"  onclick="post_it(100)" > <i class="fa fa-heart" aria-hidden="true"></i> Like this</button>
+    			<button  class="btn btn-danger"  onclick="mutation ()" > <i class="fa fa-refresh" aria-hidden="true"></i> Mutate</button>
+    			
     			
     			
     			<div id="favorite_div" style="visibility: hidden">

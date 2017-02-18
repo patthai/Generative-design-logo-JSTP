@@ -2,7 +2,7 @@ function load_original_sequence()
 	{
 	
 	var url = "https://spreadsheets.google.com/feeds/list/17jh5-1uCEFY0haO4I55i7N2nh26kcPsjeyGEF2JmoWI/od6/public/basic?alt=json";
-
+	
 
  $.getJSON(url, function(data) // Get JSON from google sheet
  	{
@@ -11,7 +11,7 @@ function load_original_sequence()
 		
 		//original sequence is the starting point for mutation;
 		//var original_sequence = JSON [];
-		
+		console.log (JSON_data.length);
 		
 		
 		var string_data = JSON_data[JSON_length-1].content.$t;
@@ -25,6 +25,7 @@ function load_original_sequence()
 		
 		////////console.log(final_data);
 		document.getElementById("original_sequence").innerHTML = original_sequence;
+		document.getElementById("generation_count").innerHTML = "Generation :" + JSON_data.length;
 		draw_init ('myCanvas_ancestral',original_sequence);
 		mutation ();
  		 	

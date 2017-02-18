@@ -1,5 +1,5 @@
-	var canvas_width_center = 900/14;
-	var canvas_height_center = 900/14;
+	var canvas_width_center = 400/14;
+	var canvas_height_center = 400/14;
 	var colour_A;
 	var colour_B;
 	var colour_C; 
@@ -55,12 +55,12 @@ function DNA_to_number(input)
 		else if (reading_codon == "TG"){ output = output + "7";}
 		else if (reading_codon == "CA"){ output = output + "8";}
 		else if (reading_codon == "CT"){ output = output + "9";}
-		else if (reading_codon == "CC"){ output = output + "0";}
-		else if (reading_codon == "CG"){ output = output + "1";}
-		else if (reading_codon == "GA"){ output = output + "2";}
-		else if (reading_codon == "GT"){ output = output + "3";}
-		else if (reading_codon == "GC"){ output = output + "4";}
-		else if (reading_codon == "GG"){ output = output + "5";}
+		else if (reading_codon == "CC"){ output = output + "10";}
+		else if (reading_codon == "CG"){ output = output + "11";}
+		else if (reading_codon == "GA"){ output = output + "12";}
+		else if (reading_codon == "GT"){ output = output + "13";}
+		else if (reading_codon == "GC"){ output = output + "14";}
+		else if (reading_codon == "GG"){ output = output + "15";}
 		}
 		
 		return(output);
@@ -121,10 +121,11 @@ function draw_square(input, operon_size)
 		{
 			
 			var count = 0;
-			var point_x_1 = parseInt(DNA_to_number(input.substring(0, 4)))*3 + canvas_width_center ; var point_y_1 = parseInt(DNA_to_number(input.substring(4, 8)))*3 + canvas_height_center;
-			var point_x_2 = parseInt(DNA_to_number(input.substring(8, 12)))*3 + canvas_width_center; var point_y_2 = parseInt(DNA_to_number(input.substring(12,16)))*3 + canvas_height_center;
-			var point_x_3 = parseInt(DNA_to_number(input.substring(16,20)))*3 + canvas_width_center; var point_y_3 = parseInt(DNA_to_number(input.substring(20,24)))*3 + canvas_height_center;
-			var point_x_4 = parseInt(DNA_to_number(input.substring(24,28)))*3 + canvas_width_center; var point_y_4 = parseInt(DNA_to_number(input.substring(28,32)))*3 + canvas_height_center;
+			var multiplyer = 3;
+			var point_x_1 = parseInt(DNA_to_number(input.substring(0, 4)))*multiplyer + canvas_width_center ; var point_y_1 = parseInt(DNA_to_number(input.substring(4, 8)))*multiplyer + canvas_height_center;
+			var point_x_2 = parseInt(DNA_to_number(input.substring(8, 12)))*multiplyer + canvas_width_center; var point_y_2 = parseInt(DNA_to_number(input.substring(12,16)))*multiplyer + canvas_height_center;
+			var point_x_3 = parseInt(DNA_to_number(input.substring(16,20)))*multiplyer + canvas_width_center; var point_y_3 = parseInt(DNA_to_number(input.substring(20,24)))*multiplyer + canvas_height_center;
+			var point_x_4 = parseInt(DNA_to_number(input.substring(24,28)))*multiplyer + canvas_width_center; var point_y_4 = parseInt(DNA_to_number(input.substring(28,32)))*multiplyer + canvas_height_center;
 			
 			function draw_one_square()
 				{
@@ -133,8 +134,11 @@ function draw_square(input, operon_size)
 					var draw_object = new Path();
 					draw_object.add(new Point(point_x_1, point_y_1));
 					draw_object.add(new Point(point_x_2, point_y_2));
-					draw_object.add(new Point(point_x_3, point_y_3));
+					
 					draw_object.add(new Point(point_x_4, point_y_4));
+					draw_object.add(new Point(point_x_3, point_y_3));
+					
+					
 					draw_object.closed = true;
 					
 				
@@ -143,8 +147,6 @@ function draw_square(input, operon_size)
 					
 				
 				//if repeat is on!	
-				
-				
 				if (repeat_switch == 'C' || repeat_switch == 'G')
 					{
 
@@ -240,25 +242,25 @@ function draw_process(input_DNA_string)
 		
 				{
 				
-				var reading_codon = input_DNA_string.substring(i, i+2);
+				var reading_codon = coding_sequence.substring(i, i+2);
 				
 				if(reading_codon == "AA")
 					{ 
-					
-				
+
 					var starting_site_square = i;
-					i = i + 40;
-					
-					draw_square(coding_sequence.substring(starting_site_square, starting_site_square+operon_size), operon_size);
-					
+					i = i + operon_size + 2; // operon_size+ reading codon
+					//console.log("square" + coding_sequence.substring(starting_site_square+2, starting_site_square+operon_size+2));
+					draw_square(coding_sequence.substring(starting_site_square+2, starting_site_square+operon_size+2), operon_size);
+				
 					
 					}
 					
 				else if(reading_codon == "AT")
 					{ 
 					var starting_site_circle = i;
-					i = i + 40;
-					draw_ellipse(coding_sequence.substring(starting_site_circle, starting_site_circle+operon_size), operon_size);
+					i = i + operon_size + 2; // operon_size+ reading codon
+					//console.log("circle" + coding_sequence.substring(starting_site_circle+2, starting_site_circle+operon_size+2));
+					draw_ellipse(coding_sequence.substring(starting_site_circle+2, starting_site_circle+operon_size+2), operon_size);
 					
 					}	
 					

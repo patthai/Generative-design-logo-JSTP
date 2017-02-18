@@ -1,14 +1,11 @@
 function mutation ()
 {
 		var input_sequence = document.getElementById("original_sequence").value;
-
-
-	
 		var mutation_rate = document.getElementById("jstp_value").value;
 		//console.log(input_sequence);
 		//console.log(mutation_rate);
 		
-		var mutation_constant = 0.05 * mutation_rate;
+		var mutation_constant = 0.2 * mutation_rate;
 		document.getElementById("v_1").value = mutate (mutation_constant, input_sequence, 'myCanvas_1');
 		document.getElementById("v_2").value = mutate (mutation_constant, input_sequence, 'myCanvas_2');
 		document.getElementById("v_3").value = mutate (mutation_constant, input_sequence, 'myCanvas_3');

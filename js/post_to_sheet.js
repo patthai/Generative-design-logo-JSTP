@@ -4,9 +4,13 @@ $(document).ready(function( $ ) {
 	
 	window.post_to_sheet = function(){
 	    var count = 0; 
+	    var post_check = 0;
+	    
+	    
 		var request;
 		$("#data").submit(function(event){
 		
+	
 		if (count < 1){
 			var $form = $("#data");
 			var $inputs = $form.find("input, select, button, textarea");

@@ -1,11 +1,18 @@
 <html><head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.18/paper-full.min.js'></script>
 <script src="js/load_sheet.js"></script>
 <script src="js/mutation.js"></script>
 <script src="js/post_to_sheet.js"></script>
 <script src="js/generate_production.js"></script>
+<script src="js/innit.js"></script>
+<script src="js/save_pic.js"></script>
+
+<!-- sweetAlert --!>
+<script src="js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
 
 
@@ -49,79 +56,95 @@
         </form>
       </div>
     </nav>
-
-    <div class="container" style=" padding-top: 60px;">
-
 	<title>JSTP</title>
+    <div class="container">
+
+	
 	
 	
 	
 
-	<form id="data">
+	<form id="data"  onsubmit="return false;">
 	
 	<div class="row">
   		<div class="col-md-6">
   			      <canvas id="myCanvas_ancestral" width="400" height="400"></canvas>
   		</div>
   		
-  		<div class="col-md-6">
+  		<div class="col-md-6" style=" padding-top: 80px;">
   				
   				
   				<div class="row">
   					<div class="col-lg-6">
-    					<div class="input-group">
+    					<div class="input-group  has-danger">
   						<span class="input-group-addon" id="sizing-addon2">Name</span>
   						<input id="name" name="name"  class="form-control" type="text" value="">
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<div class="input-group">
+						<div class="input-group row has-danger">
   						<span class="input-group-addon" id="sizing-addon2">JSTP#</span>
   						<input id="jstp_value" name="jstp" class="form-control"  type="text" value="12">
 						</div>
 					</div>
     			</div>
    
-    			<p id ="generation_count">Generation :</p>
+    			<p id ="generation_count" style="margin-top: 16px;">Generation : </p>
     			<textarea id="original_sequence" class="form-control" name="original_sequence" cols="40" class="form-control"></textarea></p>
     			
     			
-    			<button  class="btn btn-danger"  onclick="post_it(100)" > <i class="fa fa-heart" aria-hidden="true"></i> Like this</button>
-    			<button  class="btn btn-danger"  onclick="mutation ()" > <i class="fa fa-refresh" aria-hidden="true"></i> Mutate</button>
-    			
-    			
-    			
-    			<div id="favorite_div" style="visibility: hidden">
-    			<textarea id="favorite" name="favorite" type="text" value="0"></textarea>
+    			<div id ="div_comment">
+    			<p>Please share your thought for JSTP 20 years anniversary? </p>
+    			<p>อยากฝากอะไรสำหรับ 20 ปี JSTP </p>
+    			<textarea id="text_comment" class="form-control" name="comment" cols="40" class="form-control"></textarea></p>
     			</div>
     			
-    			<center><p id="result"></p> </center>
+    			<button  id ="like_button" class="btn btn-outline-danger"  onclick="show_comment()" > <i class="fa fa-heart" aria-hidden="true"></i> Like this</button>
+    			<button  class="btn btn-outline-danger"  onclick="mutation()" > <i class="fa fa-refresh" aria-hidden="true"></i> Mutate</button>
+    			<button  class="btn btn-outline-danger"  onclick="save_picture('myCanvas_ancestral')" > <i class="fa fa-picture-o" aria-hidden="true"></i> Save picture</button>
+    			
+    			
+    			
+    			<div id="favorite_div" style="display: none;">
+    			<input id="favorite" name="favorite" type="text" value="0"></input>
+    			</div>
+    			
+    			<center><p id="result" style="margin-top: 16px;"></p> </center>
     			
     			
     			
   		</div>
 	</div>
-<hr>
+<hr style ="border: 0.5;">
 
     
     <div class="row">
   		<div class="col-md-4">
   			 <canvas id="myCanvas_1" width="400" height="400" ></canvas>
-    		<p>Mutation 1	<button onclick="post_it(1)" class="btn btn-primary">Select this</button></p>
+    		<p style="margin-top: 16px;">Mutation 1	<button onclick="post_it(1)" class="btn btn-outline-danger">Select this</button> 
+    		<button  class="btn btn-outline-danger"  onclick="save_picture('myCanvas_1')" > <i class="fa fa-picture-o" aria-hidden="true"></i></button>
+    		</p>
+    		
     		<textarea id="v_1" name="variation_1" cols="40"  class="form-control"></textarea></p>
     	
   		</div>
   		
   		<div class="col-md-4">
   			<canvas id="myCanvas_2" width="400" height="400" ></canvas>
-  			<p>Mutation 2	<button onclick="post_it(2)" class="btn btn-primary">Select this</button></p>
+  			<p style="margin-top: 16px;">Mutation 2	<button onclick="post_it(2)" class="btn btn-outline-danger">Select this</button>
+  			<button  class="btn btn-outline-danger"  onclick="save_picture('myCanvas_2')" > <i class="fa fa-picture-o" aria-hidden="true"></i></button>
+  			</p>
+  			
    			<textarea id="v_2" name="variation_2" cols="40"  class="form-control"></textarea></p>
     		
   		</div>
   		
   		<div class="col-md-4">
   		    <canvas id="myCanvas_3" width="400" height="400" ></canvas>
-    		<p>Mutation 3	<button onclick="post_it(3)" class="btn btn-primary">Select this</button></p>
+    		<p style="margin-top: 16px;">Mutation 3	<button onclick="post_it(3)" class="btn btn-outline-danger">Select this</button>
+    		<button  class="btn btn-outline-danger"  onclick="save_picture('myCanvas_3')" > <i class="fa fa-picture-o" aria-hidden="true"></i></button>
+    		</p>
+    		
    			<textarea id="v_3" name="variation_3" cols="40" class="form-control"></textarea></p>
   		</div>
   		
@@ -142,7 +165,8 @@
 
 
 <script>
- load_original_sequence();
+document.getElementById('div_comment').style.display = "none";
+
 </script>
 
 

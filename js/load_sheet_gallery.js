@@ -23,14 +23,13 @@ function load_original_sequence(gallery_switch)
 				
 				
 				var string_data = JSON_data[i].content.$t;
-					//<*********** convert each line to JSON ***********>
-				string_data = "{" + "\"" + string_data.replace(/:/g,"\":\"") +  "\"" + "}" ;
-				string_data = string_data.replace(/,/g,"\",\"");
-				string_data = string_data.replace(/\" /g,"\"");
-				var final_data = JSON.parse(string_data);
-				//<*********** convert each line to JSON ***********>
-				var original_sequence = final_data.originalsequence;
-			
+		//<*********** convert each line to JSON ***********>
+		string_data = "{" + "\"" + string_data.replace(/:/g,"\":\"") +  "\"" + "}" ;
+		string_data = string_data.replace(/,/g,"\",\"");
+		string_data = string_data.replace(/\" /g,"\"");
+		var final_data = JSON.parse(string_data);
+		//<*********** convert each line to JSON ***********>
+		var original_sequence = final_data.originalsequence; 
 				var canvas_name = String ("myCanvas_"+i);
 				var comment_text = final_data.comment;
 				if (comment_text == null)

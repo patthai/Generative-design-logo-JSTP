@@ -74,10 +74,16 @@ $(document).ready(function( $ ) {
 
 function post_it(selected_choice)
 {
-
-
+ if ( document.getElementById("name").value == "" || document.getElementById("jstp_value").value == "" )
+					{
+					swal("โปรดระบุชื่อเเละรุ่น JSTP", "ขอบคุณครับ", "info");
+					
+					//alert ("Please type your name");
+					}
 		
-		if (selected_choice == 1){
+				else 
+					{
+				if (selected_choice == 1){
 			document.getElementById("favorite").value = "0";
 			document.getElementById("text_comment").value = "" ;
 			document.getElementById("original_sequence").value = document.getElementById("v_1").value;
@@ -106,6 +112,12 @@ function post_it(selected_choice)
 			}
 
 		post_to_sheet();
+					
+					}
+ 	
+
+		
+	
 	
 		
 }

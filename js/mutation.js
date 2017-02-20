@@ -94,7 +94,7 @@ function mutate (mutation_constant, input_sequence, input_canvas)
 		var inprogress_sequence = input_sequence;
 		for (i = 0; i < mutation_constant; i++)
 			{
-			var mutationtype = Math.floor((Math.random() * 5) + 1);
+			var mutationtype = Math.floor((Math.random() * 3) + 1);
 			//console.log(mutationtype);
 			if (mutationtype == 1){insertion(); }
 			else if (mutationtype == 2)
@@ -107,8 +107,7 @@ function mutate (mutation_constant, input_sequence, input_canvas)
 					
 				}
 			else if (mutationtype == 3){reversion();}
-			else if (mutationtype == 4){reversion();}
-			else if (mutationtype == 5){insertion();}
+		
 		
 			}
 		draw_init (input_canvas,inprogress_sequence);

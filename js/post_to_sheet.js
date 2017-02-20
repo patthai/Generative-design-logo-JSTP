@@ -7,6 +7,18 @@ $(document).ready(function( $ ) {
 	    var post_check = 0;
 	    
 	    
+	    var input_str = document.getElementById("text_comment").value;
+	    input_str = input_str.replace(/:/g,"");
+	    input_str = input_str.replace(/;/g,"");
+	    input_str = input_str.replace(/"/g,"");
+	    document.getElementById("text_comment").value = input_str ;
+	    
+	    input_str = document.getElementById("name").value;
+	    input_str = input_str.replace(/:/g,"");
+	    input_str = input_str.replace(/;/g,"");
+	    input_str = input_str.replace(/"/g,"");
+	    document.getElementById("name").value = input_str ;
+		
 		var request;
 		$("#data").submit(function(event){
 		
@@ -31,7 +43,8 @@ $(document).ready(function( $ ) {
 				
 				if (document.getElementById("favorite").value == "1")
 					{
-					swal("Thank you!", "You contribution has been recorded", "success");
+					
+					swal("บันทึกสำเร็จ", "สามารถไปดูบันทึกของคุณได้ที่ Gallery" , "success");
 					}
 				
 				console.log("Hooray, it worked!");

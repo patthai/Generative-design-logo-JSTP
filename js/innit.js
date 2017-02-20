@@ -15,7 +15,7 @@ function show_comment()
  			
  				if ( document.getElementById("name").value == "" || document.getElementById("jstp_value").value == "" )
 					{
-					swal("Hello!", "Please specify your name and your #JSTP generation", "info");
+					swal("โปรดระบุชื่อเเละรุ่น JSTP", "ขอบคุณครับ", "info");
 					
 					//alert ("Please type your name");
 					}

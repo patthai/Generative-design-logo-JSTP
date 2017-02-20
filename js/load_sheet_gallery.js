@@ -48,7 +48,7 @@ function load_original_sequence(gallery_switch)
 					}
 				
 					//$( ".container" ).append( $( "<div class=\"row\">" ) );
-					$( ".row" ).append( $( "<div class=\"col-md-4\"><canvas id=\"" + canvas_name + "\"width=\"400\" height=\"400\" ></canvas> <center style=\" margin-top: 20px;\"><center><h3> Generation " + i + "</center></h3><center><p>" + comment_text + "</center></p>" + final_data.name + "</p></center>" ) );
+					$( ".row" ).append( $( "<div class=\"col-md-4\"><canvas id=\"" + canvas_name + "\"width=\"400\" height=\"400\" ></canvas> <center style=\" margin-top: 20px;\"><center><h3> Generation " + i + "</center></h3><center><p>" + comment_text + "</center> <h4><span class=\"badge badge-danger\">" + final_data.name + "</span></h4></center>" ) );
 					draw_init (canvas_name,original_sequence);
 			
 					

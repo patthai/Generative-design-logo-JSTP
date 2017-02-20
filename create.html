@@ -16,48 +16,37 @@
 
 
 
-  <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 
 
 
 
 
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">Navbar</a>
+   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+         <a class="navbar-brand" href="index.html"><h3>JSTP20</h3></a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
+        		
+        		<a class="nav-link" href="index.html"> <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                <a class="nav-link active" href="create.html"><i class="fa fa-eye" aria-hidden="true"></i> Create</a>
+                <a class="nav-link" href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
+                <a class="nav-link" href="inspiration.html"><i class="fa fa-flask " aria-hidden="true"></i> Inspiration</a>
+                <a class="nav-link" href="gallery.html"><i class="fa fa-th" aria-hidden="true"></i> Gallery</a>
+                <a class="nav-link" href="evolution.html"><i class="fa fa-spinner" aria-hidden="true"></i> Evolution</a>
+             
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        
       </div>
     </nav>
+    
+    
+    
 	<title>JSTP</title>
-    <div class="container">
+	
+    <div class="container" style="top: 60px;">
 
 	
 	
@@ -84,7 +73,7 @@
 					<div class="col-lg-6">
 						<div class="input-group row has-danger">
   						<span class="input-group-addon" id="sizing-addon2">JSTP#</span>
-  						<input id="jstp_value" name="jstp" class="form-control"  type="text" value="12">
+  						<input type="number" min="0" max="1000" id="jstp_value" name="jstp" class="form-control"  type="text" value="12">
 						</div>
 					</div>
     			</div>
@@ -99,7 +88,7 @@
     			<textarea id="text_comment" class="form-control" name="comment" cols="40" class="form-control"></textarea></p>
     			</div>
     			
-    			<button  id ="like_button" class="btn btn-outline-danger"  onclick="show_comment()" > <i class="fa fa-heart" aria-hidden="true"></i> Like this</button>
+    			<button  id ="like_button" class="btn btn-danger"  onclick="show_comment()" > <i class="fa fa-heart" aria-hidden="true"></i> Like this</button>
     			<button  class="btn btn-outline-danger"  onclick="mutation()" > <i class="fa fa-refresh" aria-hidden="true"></i> Mutate</button>
     			<button  class="btn btn-outline-danger"  onclick="save_picture('myCanvas_ancestral')" > <i class="fa fa-picture-o" aria-hidden="true"></i> Save picture</button>
     			
